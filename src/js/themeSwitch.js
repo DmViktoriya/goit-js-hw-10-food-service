@@ -1,11 +1,10 @@
-import { galleryItems } from "./galleryitems";
 import { refs } from "./refs";
 
 let activeIndex = null;
 
 function createGalleryCards(items) {
-    return items.map(({original, preview, description}) => {
-    return  `<li class="gallery__item">
+    return items.map(({ original, preview, description }) => {
+        return `<li class="gallery__item">
   <a
     class="gallery__link"
     href="${original}"
@@ -17,7 +16,7 @@ function createGalleryCards(items) {
       alt="${description}"
     />
   </a>
-</li>`  
+</li>`
     })
 }
 
@@ -32,7 +31,7 @@ function modalOpen(e) {
     }
     refs.lightBox.classList.add('is-open');
     refs.lightboxImage.src = e.target.dataset.source;
-    
+
     createGalleryCards(galleryItems).forEach((element, ind) => {
         if (element.includes(e.target.src)) {
             activeIndex = ind;
@@ -67,7 +66,7 @@ function closeByEscape(e) {
 }
 
 function changeByArrows(e) {
-    if (e.key === 'ArrowRight' && activeIndex < galleryItems.length -1) {
+    if (e.key === 'ArrowRight' && activeIndex < galleryItems.length - 1) {
         activeIndex += 1;
         refs.lightboxImage.src = galleryItems[activeIndex].original;
         return;
@@ -77,13 +76,13 @@ function changeByArrows(e) {
         refs.lightboxImage.src = galleryItems[activeIndex].original;
         return;
     }
-    if (e.key === 'ArrowRight' && activeIndex === galleryItems.length -1) {
+    if (e.key === 'ArrowRight' && activeIndex === galleryItems.length - 1) {
         activeIndex = 0;
         refs.lightboxImage.src = galleryItems[activeIndex].original;
         return;
     }
     if (e.key === 'ArrowLeft' && activeIndex === 0) {
-        activeIndex = galleryItems.length -1;
+        activeIndex = galleryItems.length - 1;
         refs.lightboxImage.src = galleryItems[activeIndex].original;
         return;
     }
