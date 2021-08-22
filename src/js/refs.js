@@ -1,5 +1,5 @@
 export const refs = {
-    galleryList: document.querySelector('.js-gallery'),
-    lightBox: document.querySelector('.js-lightbox'),
-    lightboxImage: document.querySelector('.lightbox__image'),
-}
+  menuRef: document.querySelector('.js-menu'),
+  bodyRef: document.querySelector('body'),
+  switchRef: document.querySelector('#theme-switch-toggle'),
+};
