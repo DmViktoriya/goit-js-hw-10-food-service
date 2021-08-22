@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homework 10</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="toolbar">
+      <!-- Разметка переключателя темы -->
+      <div class="theme-switch">
+        <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+          <use href="./images/sprite.svg#sun"></use>
+        </svg>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Homework 8</title>
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
+        <div class="theme-switch__control">
+          <input
+            class="theme-switch__toggle"
+            type="checkbox"
+            name="theme"
+            id="theme-switch-toggle"
+            aria-label="Переключить между тёмной и светлой темой"
+          />
+          <label
+            aria-hidden="true"
+            class="theme-switch__track"
+            for="theme-switch-toggle"
+          >
+          </label>
+          <div aria-hidden="true" class="theme-switch__marker"></div>
+        </div>
 
-<body>
-  <!-- В этот список добавляй элементы галереи -->
-  <ul class="gallery js-gallery"></ul>
-
-  <!--
-      Модальное окно для полноразмерного изображения
-      Для того чтобы открыть, необходимо добавить на div.lightbox CSS-класс is-open
-    -->
-  <div class="lightbox js-lightbox">
-    <div class="lightbox__overlay"></div>
-
-    <div class="lightbox__content">
-      <img class="lightbox__image" src="" alt="" />
+        <svg class="theme-switch__icon" aria-label="Иконка луны">
+          <use href="./images/sprite.svg#moon"></use>
+        </svg>
+      </div>
     </div>
 
-    <button type="button" class="lightbox__button" data-action="close-lightbox"></button>
-  </div>
-
-  <script src="app.js" type="module"></script>
-</body>
-
+    <!-- В этот список рендери разметку меню -->
+    <ul class="menu js-menu"></ul>
+    <script src="./index.js"></script>
+  </body>
 </html>
