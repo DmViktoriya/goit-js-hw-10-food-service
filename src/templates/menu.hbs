@@ -1,46 +1,22 @@
-import { refs } from './refs';
-
-const Theme = {
-  LIGHT: 'light-theme',
-  DARK: 'dark-theme',
-};
-
-export function getTheme() {
-  const currentTheme = localStorage.getItem('theme');
-
-  if (currentTheme === null) {
-    refs.bodyRef.classList.add(Theme.LIGHT);
-    localStorage.setItem('theme', 'light');
-    return;
-  }
-
-  if (currentTheme === 'dark') {
-    refs.bodyRef.classList.add(Theme.DARK);
-    refs.switchRef.checked = true;
-    return;
-  }
-
-  refs.bodyRef.classList.add(Theme.LIGHT);
-  localStorage.setItem('theme', 'light');
-  return;
-};
-
-export function switchTheme(e) {
-  
-  if (localStorage.getItem('theme') === 'light') {
-    refs.bodyRef.classList.remove(Theme.LIGHT);
-    refs.bodyRef.classList.add(Theme.DARK);
-    localStorage.removeItem('theme');
-    localStorage.setItem('theme', 'dark');
-
-    return;
-  }
-  if (localStorage.getItem('theme') === 'dark') {
-    refs.bodyRef.classList.add(Theme.LIGHT);
-    refs.bodyRef.classList.remove(Theme.DARK);
-    localStorage.removeItem('theme');
-    localStorage.setItem('theme', 'light');
-      
-    return;
-  }
-}
+{{#each this}}
+  <li class='menu__item'>
+    <article class='card'>
+      <img class='card__image' src='{{image}}' alt='{{name}}' />
+      <div class='card__content'>
+        <h2 class='card__name'>{{name}}</h2>
+        <p class='card__price'><i class='material-icons'> monetization_on </i>{{price}} кредитов</p>
+        <p class='card__descr'>{{description}}</p>
+        <ul class='tag-list'>
+          {{#each ingredients}}
+            <li class='tag-list__item'>
+              {{this}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <button class='button card__button'>
+        <i class='material-icons button__icon'> shopping_cart </i>
+        В корзину</button>
+    </article>
+  </li>
+{{/each}}
